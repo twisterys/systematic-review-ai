@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+output/chroma_db/
+output/*.json
+output/*.md
+output/*.docx
+output/*.png
+.pytest_cache/
+.DS_Store
