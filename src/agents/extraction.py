@@ -4,7 +4,7 @@ Performs structured data extraction (evidence tables) and risk-of-bias assessmen
 for all included studies.
 """
 
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
 from ..config import get_llm
 import json
 import re

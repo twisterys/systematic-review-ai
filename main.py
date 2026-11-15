@@ -1,4 +1,5 @@
 """
+Author : Yassir SAMADI
 CLI Entry Point for the Multi-Agent Systematic Review Pipeline.
 Usage:
     python main.py --topic "Cognitive Multi-Agent Ecosystems for Autonomous Talent Marketplaces"

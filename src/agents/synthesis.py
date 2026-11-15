@@ -4,7 +4,7 @@ Produces a rigorous, PRISMA 2020-compliant Systematic Literature Review manuscri
 Synthesizes findings across included studies, compiles evidence tables, and formats citations.
 """
 
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Tuple
 from ..config import get_llm
 from ..prisma import compute_prisma_flow_counts, generate_mermaid_flow_diagram
 

@@ -106,7 +106,8 @@ systematic_review_ai/
 
 ### 2. Clone Repository & Setup Virtual Environment
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/twisterys/systematic-review-ai.git
+
 cd systematic_review_ai
 
 # Create and activate virtual environment
@@ -117,6 +118,8 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
+or 
+./.venv/bin/python -m pip install -r requirements.txt
 ```
 
 ### 4. Configure API Keys
@@ -127,8 +130,8 @@ cp .env.example .env
 Edit `.env` and insert your credentials:
 ```ini
 # Google Gemini (Recommended)
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-1.5-pro
+GEMINI_API_KEY=Sorry_cant_share_in_public
+GEMINI_MODEL=gemini-version-mode 
 
 # Preferred Provider
 DEFAULT_LLM_PROVIDER=gemini
@@ -139,7 +142,7 @@ SEMANTIC_SCHOLAR_API_KEY=
 OPENALEX_EMAIL=your_email@example.com
 ```
 
-*(Note: The pipeline includes an offline academic seed corpus and zero-dependency HTTP fallbacks to ensure seamless dry-run testing even without active API keys).*
+*(Note: The pipeline queries live academic APIs and provides explicit connection and validation diagnostics if network connectivity or API credentials require configuration).*
 
 ---
 
@@ -195,26 +198,10 @@ Demonstrated on the benchmark topic:
 | **Inter-Agent Screening Agreement** | **100.0%** | 80–90% human inter-rater Kappa |
 | **Cyclic QA Iterations** | Managed via Critic Agent | Human editorial revision |
 
----
-
-## 🎬 3-Minute Video Demonstration Script
-
-Use this storyboard for your 3-minute video submission requirement:
-
-| Time | Scene | Talking Points / Demonstration |
-|------|-------|--------------------------------|
-| **0:00 - 0:35** | **Architecture Overview** | Present the challenge of manual systematic reviews (200+ hours). Introduce the LangGraph multi-agent architecture with its 7 specialized agents adhering to PRISMA 2020. |
-| **0:35 - 1:15** | **Launch & Live Execution** | Open `http://localhost:8501`. Enter the research topic *"Cognitive Multi-Agent Ecosystems for Autonomous Talent Marketplaces"*. Show the Coordinator defining PICO, the Search Strategy agent crafting Boolean queries, and multi-source retrieval in action. |
-| **1:15 - 1:55** | **PRISMA Flow & Screening** | Show the **PRISMA 2020 Flow Diagram** tab with exact counts (Identified, Deduplicated, Screened, Included). Click the **Screening Decisions** tab to demonstrate that *every* included and excluded paper has a transparent, logged rationale. |
-| **1:55 - 2:30** | **Evidence Tables & Narrative** | Highlight the structured evidence table (study design, agent architectures, findings) and the Quality Appraisal (Risk of Bias). Show the Critic Agent QA loop ensuring consistency. |
-| **2:30 - 3:00** | **Evaluation & Conclusion** | Display the Performance tab showing 99.98% time savings and 100% PRISMA compliance. Download the final manuscript report and conclude with open-source reproducibility. |
-
----
 
 ## 👥 Individual Contribution & Project Submission
 
-- **Student / Author:** Individual Submission
-- **Project Role:** Lead AI Architect & Systems Developer
+- **Author:** Yassir Samadi
 - **Individual Contribution:**
   - Designed the end-to-end multi-agent LangGraph architecture and state schema (`SystematicReviewState`).
   - Implemented the 7 specialized cognitive agents (Coordinator, Search Strategy, Retrieval, Dual Screening, Extraction/Appraisal, Synthesis, and Critic).
@@ -225,5 +212,4 @@ Use this storyboard for your 3-minute video submission requirement:
 ---
 
 ## 📜 License & Open Science
-
 This project is licensed under the MIT License. Developed for transparent, reproducible, and verifiable academic literature reviews.

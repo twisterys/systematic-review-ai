@@ -127,21 +127,26 @@ if start_pipeline and research_topic:
 
     t0 = time.time()
     pipeline = SystematicReviewPipeline()
-    with st.spinner("🤖 Multi-agent team executing review according to PRISMA 2020 protocol..."):
-        result_state = pipeline.run_full_pipeline(
-            topic=research_topic,
-            question=research_question,
-            callback=ui_callback
-        )
-    elapsed = time.time() - t0
+    try:
+        with st.spinner("🤖 Multi-agent team executing review according to PRISMA 2020 protocol..."):
+            result_state = pipeline.run_full_pipeline(
+                topic=research_topic,
+                question=research_question,
+                callback=ui_callback
+            )
+        elapsed = time.time() - t0
 
-    st.session_state.review_state = result_state
-    st.session_state.eval_metrics = evaluate_pipeline_run(result_state, execution_seconds=elapsed)
-    
-    progress_bar.progress(100)
-    status_text.success(f"✅ Systematic Review completed in {elapsed:.1f} seconds! Review results below.")
-    time.sleep(1)
-    st.rerun()
+        st.session_state.review_state = result_state
+        st.session_state.eval_metrics = evaluate_pipeline_run(result_state, execution_seconds=elapsed)
+        
+        progress_bar.progress(100)
+        status_text.success(f"✅ Systematic Review completed in {elapsed:.1f} seconds! Review results below.")
+        time.sleep(1)
+        st.rerun()
+    except Exception as e:
+        progress_bar.progress(0)
+        status_text.error(f"❌ {str(e)}")
+        st.error(str(e))
 
 # Display Results if available
 if st.session_state.review_state:
